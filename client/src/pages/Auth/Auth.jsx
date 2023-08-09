@@ -13,28 +13,28 @@ const Auth = () =>{
     return(
         <section class='auth-section'>
             { isSignup && <AboutAuth/>}
-            <div class='auth-container'>
+            <div class='auth-container-2'>
                 { !isSignup && <img src={icon} alt='stack overflow' className='login-logo'/>}
                 <form>
                     {
                         isSignup && (
                             <label htmlFor='name'>
-                                <h4>Display Name</h4>
+                                <h4 style={{display:"flex", justifyContent:"space-between"}}>Display Name</h4>
                                 <input type='text' id='name' name='name'/>
                             </label>
                         )
                     }
                     <label htmlFor="email">
-                        <h4>Email</h4>
+                        <h4 style={{display:"flex", justifyContent:"space-between"}}>Email</h4>
                         <input type="email" name='name' id='email'/>
                     </label>
                     <label htmlFor="password">
-                        <div>
+                        <div style={{display:"flex", justifyContent:"space-between"}}>
                         <h4>Password</h4>
                         { !isSignup && <p  style={{color:"#007ac6"}}>forgot password?</p> }
                         </div>
                         <input type="password" name='password' id='password'/>
-                        { isSignup && <p style={{fontsize:'13px'}}>Password must contain at least eight<br/> characters, including at least 1 letter and 1,<br/> number.</p>}
+                        { isSignup && <p style={{fontsize:'13px', color:"#666767"}}>Password must contain at least eight<br/> characters, including at least 1 letter and 1,<br/> number.</p>}
                     </label>
                     {
                         isSignup && (
