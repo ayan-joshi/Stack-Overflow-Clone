@@ -1,12 +1,16 @@
 import React from 'react'
 import './HomeMainbar.css'
-import {Link , useLocation} from 'react-router-dom'
+import {Link , useLocation , useNavigate} from 'react-router-dom'
 import Questions from './Questions'
 import QuestionList from './QuestionList'
+import Button from '../Button/Button'
 
 
 const HomeMainbar = () =>{ 
-
+    const location = useLocation()
+    const user = null;
+    const navigate = useNavigate()
+   
     var questionList = [{
         id: 1,
         votes: 3,
@@ -34,15 +38,26 @@ const HomeMainbar = () =>{
         questionTags: ["java","node js","mongo","c++"],
         userPosted: "mano",
         askedOn:"jan 1"
-    }]
-const location = useLocation()
+    }]  
+
+    const checkAuth = () =>{
+        if(user == null){
+            alert("login or signup to ask a question")
+            navigate('/Auth')
+        }
+        else{
+            navigate('/AskQuestion')
+        }
+    }
+ 
+
     return(
         <div className='main-bar'>
             <div className='main-bar-header'>
                  {
                     location.pathname === '/' ? <h1>Top Questions</h1> : <h1>All Questions</h1>
                  }
-                 <Link to='/AskQuestion' className='ask-btn'>Ask Questions</Link>       
+                 <button  onClick={checkAuth} className='ask-btn'>Ask Question</button>       
             </div>
             <div>
                 {
