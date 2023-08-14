@@ -12,32 +12,56 @@ const HomeMainbar = () =>{
     const navigate = useNavigate()
    
     var questionList = [{
-        id: 1,
-        votes: 3,
+        _id: 1,
+        upVotes: 3,
+        downVotes: 2,
         noOfAnswers: 2,
         questionTitle: "What is a function",
         questionBody: "It meant to be",
         questionTags: ["java","node js","mongo","react js"],
         userPosted: "mano",
-        askedOn:"jan 1"
+        userId: 1,
+        askedOn:"jan 1",
+        answer: [{
+            answerBody: "Answer",
+            userAnswered: 'kumar',
+            answeredOn: "jan 2",
+            userId: 2,
+        }]
     },{
-        id: 2,
-        votes: 0,
-        noOfAnswers: 0,
+        _id: 1,
+        upVotes: 3,
+        downVotes: 2,
+        noOfAnswers: 2,
         questionTitle: "What is a function",
         questionBody: "It meant to be",
-        questionTags: ["javascript","python","R"],
+        questionTags: ["java","node js","mongo","react js"],
         userPosted: "mano",
-        askedOn:"jan 1"
+        userId: 1,
+        askedOn:"jan 1",
+        answer: [{
+            answerBody: "Answer",
+            userAnswered: 'kumar',
+            answeredOn: "jan 2",
+            userId: 2,
+        }]
     },{
-        id: 3,
-        votes: 0,
-        noOfAnswers: 0,
+        _id: 1,
+        upVotes: 3,
+        downVotes: 2,
+        noOfAnswers: 2,
         questionTitle: "What is a function",
         questionBody: "It meant to be",
-        questionTags: ["java","node js","mongo","c++"],
+        questionTags: ["java","node js","mongo","react js"],
         userPosted: "mano",
-        askedOn:"jan 1"
+        userId: 1,
+        askedOn:"jan 1",
+        answer: [{
+            answerBody: "Answer",
+            userAnswered: 'kumar',
+            answeredOn: "jan 2",
+            userId: 2,
+        }]
     }]  
 
     const checkAuth = () =>{
