@@ -8,7 +8,7 @@ import Button from '../Button/Button'
 
 const HomeMainbar = () =>{ 
     const location = useLocation()
-    const user = null;
+    const user = 1;
     const navigate = useNavigate()
    
     var questionList = [{
