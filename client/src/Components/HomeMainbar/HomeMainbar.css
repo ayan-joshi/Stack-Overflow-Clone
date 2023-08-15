@@ -62,7 +62,9 @@
   
   .question-title-link:hover {
     color: #009dff;
+    margin: 0;
   }
+
   
   .display-tags-time .display-tags {
     display: flex;
