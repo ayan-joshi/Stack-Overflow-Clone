@@ -1,7 +1,9 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import upvote from '../../assets/sort-up.svg'
 import downvote from '../../assets/sort-down.svg'
+import './Questions.css'
+import Avatar from '../../Components/Avatar/Avatar'
 
 const QuestionDetails = () =>{
 
@@ -9,7 +11,7 @@ const QuestionDetails = () =>{
     console.log(id)
 
     var questionList = [{
-        _id: '1',
+        _id: 1,
         upVotes: 3,
         downVotes: 2,
         noOfAnswers: 2,
@@ -26,7 +28,7 @@ const QuestionDetails = () =>{
             userId: 2,
         }]
     },{
-        _id: '2',
+        _id: 2,
         upVotes: 3,
         downVotes: 2,
         noOfAnswers: 2,
@@ -43,7 +45,7 @@ const QuestionDetails = () =>{
             userId: 2,
         }]
     },{
-        _id: '3',
+        _id: 3,
         upVotes: 3,
         downVotes: 2,
         noOfAnswers: 2,
@@ -77,6 +79,29 @@ const QuestionDetails = () =>{
                                     <img src={upvote} alt='' width='18' />
                                     <p>{question.upVotes - question.downVotes}</p>
                                     <img src={downvote} alt='' width='18'/>
+                                </div>
+                                <div style={{width: "100%"}}>
+                                    <p className='question-body'>{question.questionBody}</p>
+                                    <div className='question-details-tag'>
+                                        {
+                                            question.questionTags.amp((tag) =>(
+                                                <p key={tag}>{tag}</p>
+
+                                            ))
+                                        }
+                                    </div>
+                                    <div className="question-action-user"></div>
+                                    <div>
+                                        <button type='button'>Share</button>
+                                        <button type='button'>Delete</button>
+                                    </div>
+                                    <div>
+                                      <p>asked {question.askedOn}</p>
+                                      <Link to={'/User/${question.userId}'} className='user-link' style={{color:"#0086d8"}}>
+                                        <Avatar backgroundColor="orange" px='8px' py='5px'>{question.userPosted.charAt(0).toUpperCase()}</Avatar>
+                                      </Link>
+
+                                    </div>
                                 </div>
                                 </div> 
                             </section>
