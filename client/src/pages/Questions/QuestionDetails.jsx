@@ -12,7 +12,7 @@ const QuestionDetails = () =>{
     console.log(id)
 
     var questionList = [{
-        _id: 1,
+        _id: '1',
         upVotes: 3,
         downVotes: 2,
         noOfAnswers: 2,
@@ -29,7 +29,7 @@ const QuestionDetails = () =>{
             userId: 2,
         }]
     },{
-        _id: 2,
+        _id: '2',
         upVotes: 3,
         downVotes: 2,
         noOfAnswers: 2,
@@ -46,7 +46,7 @@ const QuestionDetails = () =>{
             userId: 2,
         }]
     },{
-        _id: 3,
+        _id: '3',
         upVotes: 3,
         downVotes: 2,
         noOfAnswers: 2,
@@ -127,11 +127,12 @@ const QuestionDetails = () =>{
                                     Browse Other Question tagged
                                     {
                                         question.questionTags.map((tag) => (
-                                            <Link to='/Tags' key={tag} className='ans-tags'>{tag}</Link>
+                                            <Link to='/Tags' key={tag} className='ans-tags'> {tag} </Link>
 
                                         ))
                                     } or 
                                     <Link to='/AskQuestion' style={{textDecoration: "none", color: "#009dff"}}>ask your own question.</Link>
+
 
                                     
                                 </p>
