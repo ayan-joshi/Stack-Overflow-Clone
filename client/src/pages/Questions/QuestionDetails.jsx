@@ -4,6 +4,7 @@ import upvote from '../../assets/sort-up.svg'
 import downvote from '../../assets/sort-down.svg'
 import './Questions.css'
 import Avatar from '../../Components/Avatar/Avatar'
+import DisplayAnswer from './DisplayAnswer'
 
 const QuestionDetails = () =>{
 
@@ -99,11 +100,41 @@ const QuestionDetails = () =>{
                                       <p>asked {question.askedOn}</p>
                                       <Link to={'/User/${question.userId}'} className='user-link' style={{color:"#0086d8"}}>
                                         <Avatar backgroundColor="orange" px='8px' py='5px'>{question.userPosted.charAt(0).toUpperCase()}</Avatar>
+                                        <div>
+                                            {question.userPosted}
+                                        </div>
                                       </Link>
 
                                     </div>
                                 </div>
                                 </div> 
+                            </section>
+                            {
+                                question.noOfAnswers !== 0 && (
+                                    <section>
+                                    <h3>{ question.noOfAnswers} answers</h3>
+                                    <DisplayAnswer key={question._id} question={question}/>
+                                    </section>
+                                )
+                            }
+                            <section className='post-ans-container'>
+                                <h3>Your Answer</h3>
+                                <form>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <input type="submit" className="post-ans-btn" value='Post Your Answer' />
+                                </form>
+                                <p>
+                                    Browse Other Question tagged
+                                    {
+                                        question.questionTags.map((tag) => (
+                                            <Link to='/Tags' key={tag} className='ans-tags'>{tag}</Link>
+
+                                        ))
+                                    } or 
+                                    <Link to='/AskQuestion' style={{textDecoration: "none", color: "#009dff"}}>ask your own question.</Link>
+
+                                    
+                                </p>
                             </section>
                         </div>
                     ))
