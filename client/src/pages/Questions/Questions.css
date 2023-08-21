@@ -1,4 +1,4 @@
-.question-detais-page{
+.question-details-page{
     width: calc(100% - 300px - 24px);
     float: left;
     margin: 25px 0px;
@@ -41,7 +41,7 @@
   }
   
   .question-details-container .question-details-tags p,
-  .post-ans-container p .ans-tag{
+  .post-ans-container p .ans-tags{
     padding: 5px 5px;
     margin: 3px;
     font-size: 13px;
@@ -49,13 +49,14 @@
     background-color: #e1ecf4;
     color: #39739d;
     text-decoration: none;
+    line-height: 22px;
     
   }
-  .question-actions-user {
+  .question-actions-user{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   
   .question-actions-user button,
@@ -124,8 +125,3 @@
     white-space: pre-line;
   }
   
-  @media screen and (max-width: 1020px) {
-    .question-details-page {
-      width: calc(100% - 24px);
-    }
-  }

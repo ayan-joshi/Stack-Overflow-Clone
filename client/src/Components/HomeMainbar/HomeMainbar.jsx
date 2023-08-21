@@ -11,7 +11,7 @@ const HomeMainbar = () =>{
     const user = 1;
     const navigate = useNavigate()
    
-    var questionList = [{
+    var questionsList = [{
         _id: 1,
         upVotes: 3,
         downVotes: 2,
@@ -85,12 +85,12 @@ const HomeMainbar = () =>{
             </div>
             <div>
                 {
-                     questionList === null ?(
+                     questionsList === null ?(
                      <h1>Loading...</h1>
     ):(
                      <>
-                     <p>{ questionList.length } questions</p>
-                     <QuestionList questionList={questionList} />
+                     <p>{ questionsList.length } questions</p>
+                     <QuestionList questionsList={questionsList} />
                      </>
                 )}
                
