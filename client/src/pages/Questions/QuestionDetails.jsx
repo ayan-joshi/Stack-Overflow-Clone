@@ -11,7 +11,7 @@ const QuestionDetails = () =>{
     const { id } = useParams()
     console.log(id)
 
-    var questionList = [{
+    var questionsList = [{
         _id: '1',
         upVotes: 3,
         downVotes: 2,
@@ -66,11 +66,11 @@ const QuestionDetails = () =>{
     return(
         <div className='question-details-page'>
             {
-                questionList === null ?
+                questionsList === null ?
                 <h1>Loading...</h1> :
                 <>
                 {
-                    questionList.filter(question => question._id === id).map(question => (
+                    questionsList.filter(question => question._id === id).map(question => (
                         <div key={question._id}>
                             {console.log(question)}
                             <section className='question-details-container'>
@@ -85,13 +85,13 @@ const QuestionDetails = () =>{
                                     <p className='question-body'>{question.questionBody}</p>
                                     <div className='question-details-tag'>
                                         {
-                                            question.questionTags.amp((tag) =>(
+                                            question.questionTags.map((tag) =>(
                                                 <p key={tag}>{tag}</p>
 
                                             ))
                                         }
                                     </div>
-                                    <div className="question-action-user"></div>
+                                    <div className="question-actions-user"></div>
                                     <div>
                                         <button type='button'>Share</button>
                                         <button type='button'>Delete</button>
