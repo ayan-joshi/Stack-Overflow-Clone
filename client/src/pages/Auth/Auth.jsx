@@ -5,22 +5,18 @@ import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 import icon from "../../assets/icon.png";
 import AboutAuth from "./AboutAuth";
-import { signup, login } from "../../actions/auth";
+
+
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSwitch = () => {
-    setIsSignup(!isSignup);
-    setName("");
-    setEmail("");
-    setPassword("");
-  };
+    setIsSignup(!isSignup)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,12 +25,10 @@ const Auth = () => {
     }
     if (isSignup) {
       if (!name) {
-        alert("Enter a name to continue");
+        alert("Enter a name to continue")
       }
-      dispatch(signup({ name, email, password }, navigate));
-    } else {
-      dispatch(login({ email, password }, navigate));
     }
+    console.log({name, email, password})
   };
 
   return (
@@ -46,15 +40,7 @@ const Auth = () => {
           {isSignup && (
             <label htmlFor="name">
               <h4>Display Name</h4>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
+              <input type="text" id="name" name="name" value={name} onChange={(e) => {setName(e.target.value);}}/>
             </label>
           )}
           <label htmlFor="email">
