@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+
 
 import "./Auth.css";
 import icon from "../../assets/icon.png";
@@ -13,6 +14,9 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
 
   const handleSwitch = () => {
@@ -28,8 +32,10 @@ const Auth = () => {
       if (!name) {
         alert("Enter a name to continue")
       }
+      dispatch(signup({ name, email, password}, navigate))
+    }else{
+      dispatch(login({email, password}, navigate))
     }
-    console.log({name, email, password})
   }
 
   return (
