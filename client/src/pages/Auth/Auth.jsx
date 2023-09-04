@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 import icon from "../../assets/icon.png";
 import AboutAuth from "./AboutAuth";
+import {signup , login} from '../../actions/auth'
 
 
 const Auth = () => {
@@ -29,7 +30,7 @@ const Auth = () => {
       }
     }
     console.log({name, email, password})
-  };
+  }
 
   return (
     <section className="auth-section">
@@ -37,7 +38,8 @@ const Auth = () => {
       <div className="auth-container-2">
         <img src={icon} alt="stack overflow" className="login-logo" />
         <form onSubmit={handleSubmit}>
-          {isSignup && (
+          {
+          isSignup && (
             <label htmlFor="name">
               <h4>Display Name</h4>
               <input type="text" id="name" name="name" value={name} onChange={(e) => {setName(e.target.value);}}/>
